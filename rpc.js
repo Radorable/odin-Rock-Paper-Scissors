@@ -56,8 +56,12 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
         return alert("same !");
     } else if (humanChoice > computerChoice) {
+        humanScore++;
+        console.log("human score is : " + humanScore);
         return alert("you win !");
     } else if (humanChoice < computerChoice) {
+        computerScore++;
+        console.log("computer score is : " + computerScore);
         return alert("you lose !");
     } else {
         return alert("something is wrong somewhere");
