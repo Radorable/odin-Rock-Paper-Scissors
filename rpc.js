@@ -38,19 +38,30 @@ function getComputerChoice() {
 // to his appropriate value
 function getHumanChoice() {
     humanChoice = prompt("give me your choice", "");
-    console.log(humanChoice);
+    humanChoice = humanChoice.toLowerCase();
+    console.log("human choice is lowercase : " + humanChoice);
     if (humanChoice == "rock") {
         return humanChoice = rock;
     } else if (humanChoice == "paper") {
         return humanChoice = paper;
-    } else {
+    } else if (humanChoice == "scissors") {
         return humanChoice = scissors;
+    } else {
+        alert("something is wrong");
     }
 }
 
 // compare
 function playRound(humanChoice, computerChoice) {
-
+    if (humanChoice == computerChoice) {
+        return alert("same !");
+    } else if (humanChoice > computerChoice) {
+        return alert("you win !");
+    } else if (humanChoice < computerChoice) {
+        return alert("you lose !");
+    } else {
+        return alert("something is wrong somewhere");
+    }
 }
 
 
@@ -61,3 +72,5 @@ console.log("scissors is " + scissors);
 console.log("");
 console.log(getHumanChoice());
 console.log("humanchoice is " + humanChoice);
+
+console.log(playRound(humanChoice, computerChoice));
