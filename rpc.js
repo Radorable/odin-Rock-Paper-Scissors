@@ -1,12 +1,5 @@
 // random number between 1 and 3
 // 1 = rock, 2 = paper, 3 = scissors
-let number = Math.floor(Math.random() * (4 - 1) + 1);
-console.log("The number is " + number);
-
-//rock, paper, scissors values to compare with the human
-let rock = 0;
-let paper = 0;
-let scissors = 0;
 
 // choices
 let computerChoice;
@@ -15,66 +8,91 @@ let humanChoice;
 // Scores
 let humanScore = 0;
 let computerScore = 0;
+let gameRound = 0;
 
 // through random numbers, assign to rock, paper, and
 // scissors a value to be able to compare with human
 function getComputerChoice() {
-    if (number == 1) {
-        paper++;
-        scissors--;
-       return computerChoice = rock;
-    } else if (number == 2) {
-        scissors++;
-        rock--;
-        return computerChoice = paper;
-    } else {
-        rock++;
-        paper--;
-        return computerChoice = scissors;
-    }
+  let number = Math.floor(Math.random() * (4 - 1) + 1);
+  console.log("The number is " + number);
+  if (number === 1) {
+    return (computerChoice = "rock");
+  } else if (number === 2) {
+    return (computerChoice = "paper");
+  } else {
+    return (computerChoice = "scissors");
+  }
 }
 
 //through human's answer, convert the appropriate string
 // to his appropriate value
-function getHumanChoice() {
-    humanChoice = prompt("give me your choice", "");
-    humanChoice = humanChoice.toLowerCase();
-    console.log("human choice is lowercase : " + humanChoice);
-    if (humanChoice == "rock") {
-        return humanChoice = rock;
-    } else if (humanChoice == "paper") {
-        return humanChoice = paper;
-    } else if (humanChoice == "scissors") {
-        return humanChoice = scissors;
-    } else {
-        alert("something is wrong");
-    }
+function getHumanChoice(e) {
+  getComputerChoice();
+  console.log(computerChoice);
+  if (e.target.id === "rock") {
+    humanChoice = "rock";
+    console.log(humanChoice);
+  } else if (e.target.id === "paper") {
+    humanChoice = "paper";
+    console.log(humanChoice);
+  } else if (e.target.id === "scissors") {
+    humanChoice = "scissors";
+    console.log(humanChoice);
+  }
+
+  return playRound(humanChoice, computerChoice);
 }
 
 // compare
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice == computerChoice) {
-        return alert("same !");
-    } else if (humanChoice > computerChoice) {
-        humanScore++;
-        console.log("human score is : " + humanScore);
-        return alert("you win !");
-    } else if (humanChoice < computerChoice) {
-        computerScore++;
-        console.log("computer score is : " + computerScore);
-        return alert("you lose !");
-    } else {
-        return alert("something is wrong somewhere");
+  gameRound++;
+  round.textContent = "Round : " + gameRound;
+  if (humanChoice === computerChoice) {
+    return alert("same !");
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    human.textContent = "Your current score is : " + humanScore;
+    if (humanScore === 5) {
+      alert("well done, you finished the game !");
+      return newGame();
     }
+    return alert("you win !");
+  } else {
+    computerScore++;
+    console.log("computer score is : " + computerScore);
+    computer.textContent = "Computer current score is : " + computerScore;
+    if (computerScore === 5) {
+      alert("well done, you finished the game !");
+      return newGame();
+    }
+    return alert("you lose !");
+  }
 }
 
+function newGame() {
+  computerScore = 0;
+  humanScore = 0;
+  gameRound = 0;
+  computer.textContent = "Computer current score is : 0";
+  human.textContent = "Your current score is : 0";
+  round.textContent = "Round : " + gameRound;
+}
 
-console.log(getComputerChoice());
-console.log("rock is " + rock);
-console.log("paper is " + paper);
-console.log("scissors is " + scissors);
-console.log("");
-console.log(getHumanChoice());
-console.log("humanchoice is " + humanChoice);
+// all DOM
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 
-console.log(playRound(humanChoice, computerChoice));
+const score = document.querySelector("#score");
+const round = document.querySelector("#round");
+
+const computer = document.querySelector("#computer");
+const human = document.querySelector("#human");
+
+rockBtn.addEventListener("click", getHumanChoice);
+paperBtn.addEventListener("click", getHumanChoice);
+scissorsBtn.addEventListener("click", getHumanChoice);

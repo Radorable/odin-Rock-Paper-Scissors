@@ -1,11 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors competition !</h1>
+      <img
+        src="https://cdn.pixabay.com/photo/2020/04/11/14/48/frog-5030712_1280.png"
+        width="200"
+      />
+      <p>Your opponent: Scary Frog</p>
+      <!-- source : https://pixabay.com/fr/vectors/frog-marrant-mignon-amusement-5030712/-->
+    </header>
+    <p id="round">Round :</p>
+    <div id="score">
+      <p id="human">Your current score is : 0</p>
+      <p id="computer">Computer current score is : 0</p>
+    </div>
+    <div id="main-btn">
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
     <!-- 
     Understand the problem (what am I going to solve):
     Creating a rock paper scissors game
@@ -91,5 +111,5 @@
     
     -->
     <script src="rpc.js"></script>
-</body>
+  </body>
 </html>
