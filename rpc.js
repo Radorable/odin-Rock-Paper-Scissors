@@ -25,7 +25,7 @@ function getComputerChoice() {
 }
 
 //through human's answer, convert the appropriate string
-// to his appropriate value
+// to its appropriate value
 function getHumanChoice(e) {
   getComputerChoice();
   console.log(computerChoice);
@@ -57,7 +57,7 @@ function playRound(humanChoice, computerChoice) {
     humanScore++;
     human.textContent = "Your current score is : " + humanScore;
     if (humanScore === 5) {
-      alert("well done, you finished the game !");
+      alert("Well done, you won the game !");
       return newGame();
     }
     return alert("you win !");
@@ -66,7 +66,7 @@ function playRound(humanChoice, computerChoice) {
     console.log("computer score is : " + computerScore);
     computer.textContent = "Computer current score is : " + computerScore;
     if (computerScore === 5) {
-      alert("well done, you finished the game !");
+      alert("Oh no, the computer won the game !");
       return newGame();
     }
     return alert("you lose !");
@@ -96,3 +96,6 @@ const human = document.querySelector("#human");
 rockBtn.addEventListener("click", getHumanChoice);
 paperBtn.addEventListener("click", getHumanChoice);
 scissorsBtn.addEventListener("click", getHumanChoice);
+
+// screen fight
+const screenFight = document.querySelector("#fight-screen");
