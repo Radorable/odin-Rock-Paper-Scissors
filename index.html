@@ -9,22 +9,32 @@
   <body>
     <header>
       <h1>Rock Paper Scissors competition !</h1>
-      <img
-        src="https://cdn.pixabay.com/photo/2020/04/11/14/48/frog-5030712_1280.png"
-        width="200"
-      />
+      <div id="fight-screen">
+        <img id="human-result" />
+        <img
+          class="enemy-frog"
+          src="https://cdn.pixabay.com/photo/2020/04/11/14/48/frog-5030712_1280.png"
+          width="200"
+        />
+        <img id="computer-result" />
+      </div>
       <p>Your opponent: Scary Frog</p>
       <!-- source : https://pixabay.com/fr/vectors/frog-marrant-mignon-amusement-5030712/-->
     </header>
-    <p id="round">Round :</p>
+    <p id="round">Round : 0</p>
+    <div id="round-result">
+      <p id="choice-result"></p>
+    </div>
     <div id="score">
       <p id="human">Your current score is : 0</p>
       <p id="computer">Computer current score is : 0</p>
     </div>
     <div id="main-btn">
-      <button id="rock">Rock</button>
-      <button id="paper">Paper</button>
-      <button id="scissors">Scissors</button>
+      <button class="btn-img"><img id="rock" src="images/OIP-2.jpg" /></button>
+      <button class="btn-img"><img id="paper" src="images/OIP-5.jpg" /></button>
+      <button class="btn-img">
+        <img id="scissors" src="images/OIP-1.jpg" />
+      </button>
     </div>
     <!-- 
     Understand the problem (what am I going to solve):
