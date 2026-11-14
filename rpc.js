@@ -126,12 +126,6 @@ function newGame() {
   computerResult.style.height = "";
 }
 
-function resultImage() {
-  if (humanChoice === "rock") {
-    humanResult.src = "images/OIP-2.jpg";
-  }
-}
-
 // all DOM
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
