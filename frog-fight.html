@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Rock Paper Scissors competition !</h1>
+    </header>
+    <div class="screen">
+      <a href="index.html">You can still escape !</a>
+      <div id="fight-screen">
+        <img id="human-result" />
+        <img
+          class="enemy-frog"
+          src="https://cdn.pixabay.com/photo/2020/04/11/14/48/frog-5030712_1280.png"
+          width="200"
+        />
+        <img id="computer-result" />
+      </div>
+      <p>Your opponent: Scary Frog</p>
+
+      <!-- source : https://pixabay.com/fr/vectors/frog-marrant-mignon-amusement-5030712/-->
+    </div>
+    <p id="round">Round : 0</p>
+    <div id="round-result">
+      <p id="choice-result"></p>
+    </div>
+    <div id="score">
+      <p id="human">Your current score is : 0</p>
+      <p id="computer">Computer current score is : 0</p>
+    </div>
+    <div id="main-btn">
+      <button class="btn-img"><img id="rock" src="images/OIP-2.jpg" /></button>
+      <button class="btn-img"><img id="paper" src="images/OIP-5.jpg" /></button>
+      <button class="btn-img">
+        <img id="scissors" src="images/OIP-1.jpg" />
+      </button>
+    </div>
+    <!-- 
+    Understand the problem (what am I going to solve):
+    Creating a rock paper scissors game
+    two player, user and random
+    if user rock and random rock = égalité
+    if user paper and random paper = égalité
+    if user scissors and random scissors = égalité
+    if user rock and random paper = random win
+    if user rock and random scissors = user win
+    if user paper and random rock = user win
+    if user paper and random scissors = random win
+    if user scissors and random rock = random win
+    if user scissors and random paper = user win
+
+    Plan :
+    -Does your program have a user interface?
+    >it doesn't
+    What will it look like?
+    >x
+    What functionality will the interface have?
+    >x
+    
+    -What inputs will your program have?
+    >ask the user his choice
+    Will the user enter data or will you get input from
+    somewhere else?
+    >he will enter data between three words when the system will ask a question
+    
+    -What’s the desired output?
+    >the desired output would be the result of the battle
+    between the user and the random
+
+
+    PSEUDOCODE
+    -Given your inputs, what are the steps
+    necessary to return the desired output?
+    > 1. the system ask to the user what he would choice,
+    2. the user answer between three words,
+    3. the system says if that's correct, incorrect, or
+    égalité
+    4. here we go again
+
+    Pseudo code :
+    Ask user what he wants to choose
+    Generate a random choice for the computer
+    if same choice, it's a tie
+    if not same choice, who win ?
+
+    p,f,c = 0
+    ComputerChoice;
+    UserChoice;
+
+    getComputerChoice
+        si c'est 1 (pierre)
+    f+1
+    c-1
+    return "pierre"
+        si c'est 2 (feuille)
+    c+1
+    p-1
+    return "feuille"
+        si c'est (ciseaux)
+    p+1
+    f-1
+    return "ciseaux"
+
+    getUserChoice
+        si (pierre)
+    UserChoice = p;
+        si (feuille)
+    UserChoice = f;
+        si (ciseaux)
+    UserChoice = c;
+
+
+        si userChoice = computerChoice
+    "égalité"
+        else si userChoice > computerChoice
+    "tu gagnes"
+        else
+    "tu perds"
+    
+    
+    -->
+    <script src="rpc.js"></script>
+  </body>
+</html>
